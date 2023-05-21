@@ -14,6 +14,11 @@ header h1, header h2{
   font-weight: bold;
 }
 
+input {
+  height: 25px;
+  font-size: medium;
+}
+
 .alarms h2 {
   margin: 30px 30px 0px 30px;
   padding: 16px 32px 0px 32px;
@@ -134,6 +139,10 @@ header h1, header h2{
   font-size: larger;
 }
 
+.alarm-button-wrapper {
+  text-align: center;
+}
+
 .countdown {
   color: #108846;
 }
@@ -144,19 +153,6 @@ header h1, header h2{
 
 .inactive-status {
   color: #a3a3a3;
-}
-
-.expired-countdown {
-  color: red;
-}
-
-.alarm-button-wrapper {
-  text-align: center;
-}
-
-input {
-  height: 25px;
-  font-size: medium;
 }
 
 .underline {
