@@ -5,9 +5,9 @@ const ModalContent = ({ addAlarm, onClose }) => {
     <div className="modal">
       <div>Add Alarm Event</div>
       <AddForm addAlarm={addAlarm} />
-      <button onClick={onClose}>Close</button>
+      <button className="close-modal-button" onClick={onClose}>Close</button>
     </div>
   );
-}
+};
 
 export default ModalContent;

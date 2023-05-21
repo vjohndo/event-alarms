@@ -39,8 +39,6 @@ const Alarms = ({ alarms, time, removeAlarm, updateAlarm }) => {
         })}
       </div>
     </div>
-
-
   )
 }
 

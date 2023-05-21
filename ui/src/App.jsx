@@ -6,12 +6,12 @@ import Alarms from './components/Alarms/Alarms';
 
 function App() {
   const [uniqueId, setUniqueId] = useState(10);
-  const [alarms, setAlarms] = useState([...alarmMocks.toSorted((a, b) => a.datetime - b.datetime)]);
+  const [alarms, setAlarms] = useState(
+    [...alarmMocks.toSorted((a, b) => a.datetime - b.datetime)]
+  );
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    alarmMocks.sort();
-
     const interval = setInterval(() => {
       setTime(new Date());
     }, 1000);
@@ -21,7 +21,10 @@ function App() {
 
   const addAlarm = (newAlarm) => {
     setAlarms(prevAlarms => {
-      return [...prevAlarms, { ...newAlarm, id: uniqueId }].toSorted((a, b) => a.datetime - b.datetime);
+      return [
+        ...prevAlarms,
+        { ...newAlarm, id: uniqueId }
+      ].toSorted((a, b) => a.datetime - b.datetime);
     })
     setUniqueId(prev => prev + 1);
   };

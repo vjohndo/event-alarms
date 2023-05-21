@@ -9,7 +9,7 @@ const AddForm = ({ addAlarm }) => {
         status: "",
         roomId: "",
         residentId: ""
-    })
+    });
 
     const handleChange = (event) => {
         const { value, name } = event.target;
@@ -17,21 +17,21 @@ const AddForm = ({ addAlarm }) => {
             console.log(value);
             const timestamp = new Date(value).getTime() / 1000;
             setNewAlarm((prev) => {
-                return { ...prev, datetime: timestamp }
+                return { ...prev, datetime: timestamp };
             })
         } else {
             setNewAlarm((prev) => {
-                return { ...prev, [name]: value }
+                return { ...prev, [name]: value };
             })
-        }
-    }
+        };
+    };
 
     const convertToISO = (timestamp) => {
         const date = new Date(timestamp * 1000);
         const isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
         const formattedString = isoDateTime.substring(0, isoDateTime.length - 1);
         console.log(formattedString);
-        return formattedString
+        return formattedString;
     }
 
     const handleSubmit = (event) => {
@@ -39,8 +39,7 @@ const AddForm = ({ addAlarm }) => {
         setNewAlarm((prev) => {
             let date = new Date(prev.datetime);
             let timestamp = date.getTime();
-            console.log(timestamp)
-            return { ...prev, datetime: timestamp }
+            return { ...prev, datetime: timestamp };
         })
         addAlarm(newAlarm);
         setNewAlarm({
@@ -50,7 +49,7 @@ const AddForm = ({ addAlarm }) => {
             status: "",
             roomId: "",
             residentId: ""
-        })
+        });
         event.preventDefault();
     }
 
@@ -87,9 +86,9 @@ const AddForm = ({ addAlarm }) => {
                 placeholder="Resident ID"
                 value={newAlarm.residentId}
             />
-            <button type="submit">Submit</button>
+            <button className="submit-form-button" type="submit">Submit</button>
         </form>
-    )
-}
+    );
+};
 
-export default AddForm
+export default AddForm;

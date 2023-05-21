@@ -16,6 +16,6 @@ const Portal = ({ addAlarm }) => {
       )}
     </>
   );
-}
+};
 
 export default Portal
