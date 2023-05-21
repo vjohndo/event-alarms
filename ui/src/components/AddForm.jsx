@@ -1,22 +1,11 @@
 import { useState } from "react";
 
-const AddForm = (props) => {
-    
-    const {addAlarm} = props
-
-    let uniqueId = (function () {
-        let num = 9;
-        return function () {
-            num += 1;
-            return String(num);
-        }
-      }()
-    );
-    
+const AddForm = ({addAlarm}) => {
+    let currentTime = new Date().getTime();
     const [newAlarm, setNewAlarm] = useState({
-        id: uniqueId(),
+        id: "",
         type: "",
-        datetime: 1684477511,
+        datetime: currentTime,
         status: "",
         roomId: "",
         residentId: ""
@@ -38,12 +27,15 @@ const AddForm = (props) => {
     }
 
     const convertToISO = (timestamp) => {
-        const date = new Date(timestamp*1000).toISOString();
-        const formattedString = date.substring(0,date.length-1);
+        const date = new Date(timestamp*1000);
+        const isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
+        const formattedString = isoDateTime.substring(0,isoDateTime.length-1);
+        console.log(formattedString);
         return formattedString
     }
     
     const handleSubmit = (event) => {
+        let currentTime = new Date().getTime();
         setNewAlarm((prev) => {
             let date = new Date(prev.datetime);
             let timestamp = date.getTime();
@@ -52,9 +44,9 @@ const AddForm = (props) => {
         })
         addAlarm(newAlarm);
         setNewAlarm({
-          id: uniqueId(),
+          id: "",
           type: "",
-          datetime: 1684477511,
+          datetime: currentTime,
           status: "",
           roomId: "",
           residentId: ""
@@ -67,7 +59,7 @@ const AddForm = (props) => {
             <input
             onChange={handleChange}
             name="type"
-            placeholder="Type"
+            placeholder="Alarm Type"
             value={newAlarm.type}
             />
             <input
@@ -80,7 +72,7 @@ const AddForm = (props) => {
             <input
             onChange={handleChange}
             name="status"
-            placeholder="status"
+            placeholder="Alarm Status"
             value={newAlarm.status}
             />
             <input

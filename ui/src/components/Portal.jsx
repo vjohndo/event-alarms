@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import ModalContent from './ModalContent';
+import ModalAddForm from './ModalAddForm';
 
 
-export default function PortalExample() {
+const Portal = ({addAlarm}) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       <button onClick={() => setShowModal(true)}>
-        Show modal using a portal
+        Add Alarm
       </button>
       {showModal && createPortal(
-        <ModalContent onClose={() => setShowModal(false)} />,
+        <ModalAddForm addAlarm={addAlarm} onClose={() => setShowModal(false)} />,
         document.body
       )}
     </>
   );
 }
+
+export default Portal

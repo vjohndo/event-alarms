@@ -2,12 +2,12 @@ import Alarm from "./Alarm"
 
 const Alarms = (props) => {
 
-    const {alarms} = props
+    const {alarms, time} = props
 
     return (
         <div className="alarms">
             {alarms?.map(alarm => 
-                <Alarm key={alarm.id} alarm={alarm} />
+                <Alarm key={alarm.id} alarm={alarm} time={time}/>
             )}
         </div>
     )
