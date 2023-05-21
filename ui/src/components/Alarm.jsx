@@ -1,6 +1,8 @@
 const Alarm = (props) => {
     
-    const {alarm, time} = props
+    // const [isExpired, setIsExpired] = 
+
+    const {id, alarm, time, removeAlarm} = props
 
     const calculateTimeDiff = (time1, time2) => {
         const padAbs = (num) => Math.abs(num).toString().padStart(2,"0");
@@ -34,6 +36,10 @@ const Alarm = (props) => {
         return (`${prefix}${days}${padAbs(hh)}:${padAbs(mm)}:${padAbs(ss)}`)       
     }
 
+    const handleClick = () => {
+        removeAlarm(id)
+    }
+
     return (
     <div className="alarm">
         <h3>Type: {alarm.type}</h3>
@@ -43,6 +49,7 @@ const Alarm = (props) => {
         <p>ResidentId ID: {alarm.residentId}</p>
         <h3>Status: {alarm.status}</h3>
         <h3>T {calculateTimeDiff(alarm.datetime * 1000, time.getTime())}</h3>
+        <button className="delete-alarm-button" onClick={handleClick}>Delete</button>
     </div>
     )
     

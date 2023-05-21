@@ -28,10 +28,18 @@ function App() {
     setUniqueId(prev => prev + 1)
   };
 
+  const removeAlarm = (alarmId) => {
+    setAlarms(prevAlarms => {
+      return prevAlarms.filter((alarm) => {
+        return alarm.id !== alarmId;
+      });
+    });
+  };
+
   return (
     <div className="App">
       <Header time={time} addAlarm={addAlarm}/>
-      <Alarms alarms={alarms} time={time}/>
+      <Alarms alarms={alarms} time={time} removeAlarm={removeAlarm}/>
       <Footer />
     </div>
   );
