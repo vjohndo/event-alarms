@@ -34,10 +34,27 @@ function App() {
     });
   };
 
+  const updateAlarm = (alarmId, updatedAlarm) => {
+    setAlarms(prevAlarms => {
+      return prevAlarms.map((alarm) => {
+        if (alarm.id === alarmId) {
+          return updatedAlarm
+        } else {
+          return alarm
+        }
+      });
+    });
+  };
+
   return (
     <div className="App">
       <Header time={time} addAlarm={addAlarm}/>
-      <Alarms alarms={alarms} time={time} removeAlarm={removeAlarm}/>
+      <Alarms 
+        alarms={alarms}
+        time={time}
+        removeAlarm={removeAlarm}
+        updateAlarm={updateAlarm}
+      />
     </div>
   );
 }

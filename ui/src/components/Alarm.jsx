@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Alarm = (props) => {  
-    const {id, alarm, time, removeAlarm} = props;
+    const {alarm, time, removeAlarm, updateAlarm} = props;
     const [isExpired, setIsExpired] = useState(alarm.datetime * 1000 < time.getTime());
     const [isActive, setIsActive] = useState(alarm.status === "active");
 
@@ -41,12 +41,16 @@ const Alarm = (props) => {
         return (`${prefix}${days}${padAbs(hh)}:${padAbs(mm)}:${padAbs(ss)}`)       
     }
 
-    const handleClick = () => {
-        removeAlarm(id)
+    const handleDelete = () => {
+        removeAlarm(alarm.id)
+    }
+
+    const handleUpdate = () => {
+        updateAlarm(alarm.id, {...alarm, status: (alarm.status === "active") ? "inactive" : "active"})
     }
 
     return (
-    <div className="alarm">
+    <div className={isActive ? "alarm" : "alarm inactive-alarm"}>
         <h3 className={isActive ? "active-status" : "inactive-status"}>Type: {alarm.type}</h3>
         <p>Time: {new Date(alarm.datetime * 1000).toLocaleTimeString()} </p>
         <p>Date: {new Date(alarm.datetime * 1000).toLocaleDateString()}</p>
@@ -54,7 +58,11 @@ const Alarm = (props) => {
         <p>ResidentId ID: {alarm.residentId}</p>
         <h3 className={isActive ? "active-status" : "inactive-status"}>Status: {alarm.status}</h3>
         <h3 className={isExpired ? "expired-countdown" : "countdown"}>T {calculateTimeDiff(alarm.datetime * 1000, time.getTime())}</h3>
-        <button className="delete-alarm-button" onClick={handleClick}>Delete</button>
+        <div className="alarm-button-wrapper">
+            <button className="alarm-button" onClick={handleDelete}>Delete</button>
+            <button className="alarm-button" onClick={handleUpdate}>Status</button>
+        </div>
+        
     </div>
     )
     
