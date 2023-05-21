@@ -8,7 +8,7 @@ const Header = ({ time, addAlarm }) => {
         <Portal addAlarm={addAlarm} />
       </div>
       <div>
-        <h2>{time.toLocaleDateString()} | Current time: {time.toLocaleTimeString()}</h2>
+        <h2>Current time: {time.toLocaleTimeString()} | {time.toLocaleDateString()}</h2>
       </div>
     </header>
   )

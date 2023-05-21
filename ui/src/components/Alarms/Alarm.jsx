@@ -51,12 +51,13 @@ const Alarm = (props) => {
 
   return (
     <div className={isActive ? "alarm" : "alarm inactive-alarm"}>
-      <h3 className={isActive ? "active-status" : "inactive-status"}>Type: {alarm.type}</h3>
+      
+      <p>Status: {alarm.status}</p>
       <p>Time: {new Date(alarm.datetime * 1000).toLocaleTimeString()} </p>
       <p>Date: {new Date(alarm.datetime * 1000).toLocaleDateString()}</p>
-      <p>Room ID: {alarm.roomId}</p>
-      <p>ResidentId ID: {alarm.residentId}</p>
-      <h3 className={isActive ? "active-status" : "inactive-status"}>Status: {alarm.status}</h3>
+      <h3>Type: <span className="underline">{alarm.type}</span></h3>
+      <h3>Room: <span className="underline">{alarm.roomId}</span></h3>
+      <h3>Resident: <span className="underline">{alarm.residentId}</span></h3>
       <h3 className={isExpired ? "expired-countdown" : "countdown"}>T {calculateTimeDiff(alarm.datetime * 1000, time.getTime())}</h3>
       <div className="alarm-button-wrapper">
         <button className="alarm-button" onClick={handleDelete}>Delete</button>
