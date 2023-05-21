@@ -3,9 +3,9 @@ import './App.css';
 import alarmMocks from './mock-data/alarmMocks';
 import Alarms from './components/Alarms';
 import PortalExample from './components/Portal';
+import AddForm from './components/AddForm';
 
 function App() {
-
   const [alarms, setAlarms] = useState([...alarmMocks]);
 
   const addAlarm = (newAlarm) => {
@@ -18,13 +18,11 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <body className="App-body">
-        
-
-
+      <div className="App-body">
+        <AddForm addAlarm={addAlarm} />
         <div><PortalExample /></div>
         <Alarms alarms={alarms}/>
-      </body>
+      </div>
       <footer className="App-footer">
       </footer>
     </div>
