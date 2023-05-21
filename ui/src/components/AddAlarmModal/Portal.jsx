@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import ModalAddForm from './ModalAddForm';
 
 
-const Portal = ({addAlarm}) => {
+const Portal = ({ addAlarm }) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>

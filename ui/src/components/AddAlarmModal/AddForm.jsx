@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddForm = ({addAlarm}) => {
+const AddForm = ({ addAlarm }) => {
     let currentTime = new Date().getTime();
     const [newAlarm, setNewAlarm] = useState({
         id: "",
@@ -12,44 +12,44 @@ const AddForm = ({addAlarm}) => {
     })
 
     const handleChange = (event) => {
-        const {value, name} = event.target;
+        const { value, name } = event.target;
         if (name === "datetime") {
             console.log(value);
             const timestamp = new Date(value).getTime() / 1000;
             setNewAlarm((prev) => {
-                return {...prev, datetime: timestamp}
+                return { ...prev, datetime: timestamp }
             })
         } else {
             setNewAlarm((prev) => {
-                return {...prev, [name]: value}
+                return { ...prev, [name]: value }
             })
         }
     }
 
     const convertToISO = (timestamp) => {
-        const date = new Date(timestamp*1000);
+        const date = new Date(timestamp * 1000);
         const isoDateTime = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString();
-        const formattedString = isoDateTime.substring(0,isoDateTime.length-1);
+        const formattedString = isoDateTime.substring(0, isoDateTime.length - 1);
         console.log(formattedString);
         return formattedString
     }
-    
+
     const handleSubmit = (event) => {
         let currentTime = new Date().getTime();
         setNewAlarm((prev) => {
             let date = new Date(prev.datetime);
             let timestamp = date.getTime();
             console.log(timestamp)
-            return {...prev, datetime: timestamp}
+            return { ...prev, datetime: timestamp }
         })
         addAlarm(newAlarm);
         setNewAlarm({
-          id: "",
-          type: "",
-          datetime: currentTime,
-          status: "",
-          roomId: "",
-          residentId: ""
+            id: "",
+            type: "",
+            datetime: currentTime,
+            status: "",
+            roomId: "",
+            residentId: ""
         })
         event.preventDefault();
     }
