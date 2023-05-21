@@ -14,14 +14,6 @@ header h1, header h2{
   font-weight: bold;
 }
 
-footer {
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
 .sub-header {
   display: flex;
   flex-direction: row;
@@ -108,4 +100,20 @@ footer {
 .alarm-form {
   display: flex;
   flex-direction: column;
+}
+
+.countdown {
+  color: #108846;
+}
+
+.expired-countdown {
+  color: red;
+}
+
+.inactive-status {
+  color: #a3a3a3;
+}
+
+.expired-countdown {
+  color: red;
 }

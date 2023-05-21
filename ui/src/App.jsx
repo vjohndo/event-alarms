@@ -3,8 +3,6 @@ import './App.css';
 import alarmMocks from './mock-data/alarmMocks';
 import Header from './components/Header';
 import Alarms from './components/Alarms';
-import Footer from './components/Footer';
-
 
 function App() {
   const [uniqueId, setUniqueId] = useState(10);
@@ -40,7 +38,6 @@ function App() {
     <div className="App">
       <Header time={time} addAlarm={addAlarm}/>
       <Alarms alarms={alarms} time={time} removeAlarm={removeAlarm}/>
-      <Footer />
     </div>
   );
 }
