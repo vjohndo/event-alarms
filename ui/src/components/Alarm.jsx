@@ -21,9 +21,9 @@ const Alarm = (props) => {
         const ss = divideFunction(msec / 1000);
         msec -= ss * 1000;
 
-        let prefix = "-";
+        let prefix = "- ";
         if (time1 < time2) {
-            prefix = "+";
+            prefix = "+ ";
         }
 
         let days = " ";
@@ -42,7 +42,7 @@ const Alarm = (props) => {
         <p>Room ID: {alarm.roomId}</p>
         <p>ResidentId ID: {alarm.residentId}</p>
         <h3>Status: {alarm.status}</h3>
-        <h3>T: {calculateTimeDiff(alarm.datetime * 1000, time.getTime())}</h3>
+        <h3>T {calculateTimeDiff(alarm.datetime * 1000, time.getTime())}</h3>
     </div>
     )
     

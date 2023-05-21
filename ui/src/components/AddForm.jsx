@@ -57,35 +57,35 @@ const AddForm = ({addAlarm}) => {
     return (
         <form className="alarm-form" onSubmit={handleSubmit}>
             <input
-            onChange={handleChange}
-            name="type"
-            placeholder="Alarm Type"
-            value={newAlarm.type}
+                onChange={handleChange}
+                name="type"
+                placeholder="Alarm Type"
+                value={newAlarm.type}
             />
             <input
-            onChange={handleChange}
-            type="datetime-local"
-            name="datetime"
-            placeholder="datetime"
-            value={convertToISO(newAlarm.datetime)}
+                onChange={handleChange}
+                type="datetime-local"
+                name="datetime"
+                placeholder="datetime"
+                value={convertToISO(newAlarm.datetime)}
             />
             <input
-            onChange={handleChange}
-            name="status"
-            placeholder="Alarm Status"
-            value={newAlarm.status}
+                onChange={handleChange}
+                name="status"
+                placeholder="Alarm Status"
+                value={newAlarm.status}
             />
             <input
-            onChange={handleChange}
-            name="roomId"
-            placeholder="Room ID"
-            value={newAlarm.roomId}
+                onChange={handleChange}
+                name="roomId"
+                placeholder="Room ID"
+                value={newAlarm.roomId}
             />
             <input
-            onChange={handleChange}
-            name="residentId"
-            placeholder="Resident ID"
-            value={newAlarm.residentId}
+                onChange={handleChange}
+                name="residentId"
+                placeholder="Resident ID"
+                value={newAlarm.residentId}
             />
             <button type="submit">Submit</button>
         </form>

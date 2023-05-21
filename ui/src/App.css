@@ -1,7 +1,53 @@
+header {
+  position: sticky;
+  top: 0;
+  background-color: rgb(63, 135, 162);
+  margin: auto 30px;
+  padding: 16px 32px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+header h1, header h2{
+  color: #fff;
+  font-weight: bold;
+}
+
+footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.sub-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-alarm-button {
+  right: 18px;
+  bottom: -18px;
+  background: #009b46;
+  color: #fff;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  font-size: larger;
+}
+
 .alarm {
   background: #e4e4e4;
   padding: 10px;
-  width: 240px;
+  width: 275px;
   margin: 16px;
   border-radius: 10px;
   box-shadow: 0 2px 5px #454545;
@@ -9,15 +55,10 @@
 }
 
 .alarms {
-  border: 1rem solid;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; 
   justify-content: flex-start;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px; */
-  /* justify-content: space-between; */
   padding: 40px 40px;
 }
 

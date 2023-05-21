@@ -1,9 +1,6 @@
 import Alarm from "./Alarm"
 
-const Alarms = (props) => {
-
-    const {alarms, time} = props
-
+const Alarms = ({alarms, time}) => {
     return (
         <div className="alarms">
             {alarms?.map(alarm => 

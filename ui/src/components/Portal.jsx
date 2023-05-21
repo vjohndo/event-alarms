@@ -7,8 +7,8 @@ const Portal = ({addAlarm}) => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <button onClick={() => setShowModal(true)}>
-        Add Alarm
+      <button className="add-alarm-button" onClick={() => setShowModal(true)}>
+        Add Alarm +
       </button>
       {showModal && createPortal(
         <ModalAddForm addAlarm={addAlarm} onClose={() => setShowModal(false)} />,
